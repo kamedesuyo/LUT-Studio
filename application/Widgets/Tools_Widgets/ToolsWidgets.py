@@ -31,7 +31,6 @@ class ToolsWidgets(customtkinter.CTkFrame):
             0: "Saturation",
             1: "Contrast",
             2: "Gamma",
-            3: "Offset",
         }
 
         self._slider_id = ["R", "G", "B", "Y"]
@@ -39,7 +38,6 @@ class ToolsWidgets(customtkinter.CTkFrame):
             0: {id: customtkinter.DoubleVar(value=1) for id in self._slider_id},
             1: {id: customtkinter.DoubleVar(value=1) for id in self._slider_id},
             2: {id: customtkinter.DoubleVar(value=1) for id in self._slider_id},
-            3: {id: customtkinter.DoubleVar(value=1) for id in self._slider_id},
         }
 
     # radioButton(optionButton)の配置
