@@ -1,6 +1,7 @@
 from PIL import Image
 import customtkinter
 from application.Image_Interface.filter import apply_gamma, apply_saturation, apply_contrast
+from application.Widgets.Image_Widgets.image_process import resize_image
 
 class Singleton:
     _instance = None
@@ -52,7 +53,8 @@ class ImageInterface(Singleton):
             self.redraw_image_label(result_image)
 
     def redraw_image_label(self, image):
-        CTkimage = customtkinter.CTkImage(light_image=image, dark_image=image, size=self.widgets_size)
+        resized_image = resize_image(image,self.widgets_size)
+        CTkimage = customtkinter.CTkImage(light_image=resized_image, dark_image=resized_image, size=self.widgets_size)
         self.image_label.configure(image=CTkimage)
         self.image_label.image = CTkimage
     

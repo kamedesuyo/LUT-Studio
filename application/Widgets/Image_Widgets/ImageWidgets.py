@@ -19,7 +19,7 @@ class ImageWidgets(customtkinter.CTkFrame):
         self.pack_propagate(False)
 
     def drop(self, event: TkinterDnD.DnDEvent):
-        image_file_path = event.data[1:-1]  # path取得 両端にある{}除去
+        image_file_path = event.data.strip("{}s")  # path取得 両端にある{}除去
         try:
             image_origin = Image.open(image_file_path)
         except Exception as e:
